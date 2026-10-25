@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- 1. Etiqueta vital para que los móviles interpreten bien el tamaño -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración del Filtro de URLs</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 15px; /* Reducido un poco para móviles */
+      max-width: 600px; /* Aumentado ligeramente para mejor vista en escritorio */
+      margin: 0 auto;
+      color: #333;
+      box-sizing: border-box; /* Asegura que el padding no desborde la pantalla */
+    }
+    
+    h1 {
+      font-size: 1.4em;
+      margin-bottom: 5px;
+    }
+    
+    p {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    /* Contenedor del input y botón */
+    .input-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    
+    input[type="text"] {
+      flex: 1;
+      padding: 12px; /* Aumentado para que sea más fácil tocar en móviles */
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      min-width: 0; /* Previene que el input empuje el layout en pantallas chicas */
+    }
+    
+    button {
+      padding: 12px 20px; /* Botones más grandes (Touch-friendly) */
+      background-color: #0060df;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #003eaa;
+    }
+    
+    /* Lista de elementos */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background-color: #f9f9f9;
+      border: 1px solid #eee;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      word-break: break-all; /* Si una URL o palabra es muy larga, la corta para que no rompa la caja */
+      gap: 10px;
+    }
+    
+    .btn-eliminar {
+      background-color: #d70022;
+      padding: 8px 14px;
+      font-size: 0.9em;
+      flex-shrink: 0; /* Evita que el botón se aplaste si el texto es muy largo */
+    }
+    
+    .btn-eliminar:hover {
+      background-color: #a4000f;
+    }
+
+    /* 2. Media Query para pantallas pequeñas (Móviles) */
+    @media (max-width: 480px) {
+      .input-group {
+        flex-direction: column; /* Apila el input y el botón verticalmente */
+      }
+      
+      button {
+        width: 100%; /* El botón ocupa todo el ancho */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Palabras o Regex bloqueados</h1>
+  <p>Añade palabras clave que bloquearán cualquier URL que las contenga.</p>
+  
+  <div class="input-group">
+    <input type="text" id="nuevaPalabra" placeholder="Ej: apuestas, /palabra-exacta/">
+    <button id="btnAgregar">Agregar</button>
+  </div>
+
+  <ul id="listaBloqueos"></ul>
+
+  <!-- Se vincula el script que controlará la lógica de esta vista -->
+  <script src="options.js"></script>
+</body>
+</html>

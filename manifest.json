@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Filtro de URLs",
+  "version": "1.1", 
+  "description": "Bloquea sitios web si la URL contiene palabras específicas.",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "mifiltro@midominio.local",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
